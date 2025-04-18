@@ -4,6 +4,7 @@ import { BookOpen } from "lucide-react";
 import Image from "next/image";
 import { getCategoryDetails } from "@/queries/categories";
 import { getReport } from "@/queries/reports";
+import { CourseProgress } from '@/components/course-progress';
 
 const EnrolledCourseCard = async ({ enrollment }) => {
     const courseCategory = await getCategoryDetails(enrollment?.course?.category?._id);
@@ -123,6 +124,13 @@ const EnrolledCourseCard = async ({ enrollment }) => {
                         {totalMarks}
                     </span>
                 </div>
+        
+        <CourseProgress
+            size="sm"
+            value={80}
+            variant={110 === 100 ? "success" : ""}
+        />
+
             </div>
         </div>
     );
