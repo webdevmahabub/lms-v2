@@ -6,7 +6,21 @@ import { CheckCircle } from "lucide-react";
 import { CourseSidebarMobile } from "./_components/course-sidebar-mobile";
 import { CourseSidebar } from "./_components/course-sidebar";
 
-const CourseLayout = ({ children }) => {
+import { getLoggedInUser } from "@/lib/loggedin-user";
+import { redirect } from "next/navigation";
+import { hasEnrollmentForCourse } from "@/queries/enrollments";
+
+const CourseLayout = async ({ children,params: {id} }) => {
+
+  const loggedinUser = await getLoggedInUser();
+  if (!loggedinUser) {
+    redirect("/login");
+  }
+
+  const isEnrolled = await hasEnrollmentForCourse(id,loggedinUser.id);
+  if (!isEnrolled) {
+    redirect("/courses");
+  }
   return (
     <div className="">
       <div className="h-[80px] lg:pl-96 fixed top-[60px] inset-y-0 w-full z-10">
