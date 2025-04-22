@@ -33,7 +33,7 @@ export const QuizCardActions = ({quiz,quizSetId}) => {
                 break; 
             } 
             default:{
-                throw new Error("Invalid Action");
+                console.log("Invalid Action");
             }    
          } 
         } catch (e) {

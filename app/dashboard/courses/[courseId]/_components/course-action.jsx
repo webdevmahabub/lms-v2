@@ -38,7 +38,7 @@ export const CourseActions = ({ courseId,isActive }) => {
                 break;
             } 
             default:
-                throw new Error("Invalid Lesson Action");
+              console.log("Invalid Lesson Action");
         }
     } catch (e) {
         toast.error(e.message);

@@ -9,7 +9,7 @@ export async function updateQuizSet(quizset, dataToUpdate){
         await Quizset.findByIdAndUpdate(quizset, dataToUpdate);
 
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }
 
@@ -83,6 +83,6 @@ export async function doCreateQuizSet(data){
         const createdQuizSet = await Quizset.create(data);
         return createdQuizSet?._id.toString();
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }

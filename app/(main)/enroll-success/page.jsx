@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 const Success = async ({ searchParams : {session_id, courseId} }) => {
 
   if (!session_id) {
-    throw new Error("Please provide a vaid session id that start with cs_")
+    console.log("Please provide a vaid session id that start with cs_")
   }
 
   const userSession = await auth();

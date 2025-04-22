@@ -24,15 +24,15 @@ export const {
                     return user;
                 } else {
                     console.error("Password Mismatch");
-                    throw new Error("Check your password");
+                    console.log("Check your password");
                 } 
             } else {
                 console.error("User not found");
-                throw new Error("User not found");
+                console.log("User not found");
             } 
         } catch (err) {
             console.error(err);
-            throw new Error(err);
+            console.log(err);
         }  
             }
         })

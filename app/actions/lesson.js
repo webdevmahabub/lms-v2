@@ -33,7 +33,7 @@ export async function reOrderLesson(data){
             await Lesson.findByIdAndUpdate(element.id, {order: element.position});
         }));
     } catch (e) {
-        throw new Error(e);
+        console.log(e);
     }
 
 }
@@ -42,7 +42,7 @@ export async function updateLesson(lessonId, data) {
     try {
         await Lesson.findByIdAndUpdate(lessonId,data);
     } catch (error) {
-        throw new Error(e);
+        console.log(e);
     }
 }
 
@@ -53,7 +53,7 @@ export async function changeLessonPublishState(lessonId) {
         return res.active
 
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 
 }
@@ -65,7 +65,7 @@ export async function deleteLesson(lessonId, moduleId){
         await Lesson.findByIdAndDelete(lessonId);
         module.save();
     } catch (err) {
-        throw new Error(err);
+        console.log(err);
     }
 }
 

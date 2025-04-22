@@ -20,6 +20,6 @@ export async function getReport(filter) {
         return replaceMongoIdInObject(report);
     } catch (error) {
         console.error("Error in getReport:", error);
-        throw new Error(error.message || "Failed to fetch report");
+        console.log(error.message || "Failed to fetch report");
     }
 }

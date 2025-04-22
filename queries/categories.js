@@ -10,6 +10,6 @@ export async function getCategoryDetails(categoryId){
         const category = await Category.findById(categoryId).lean();
         return replaceMongoIdInObject(category);
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }

@@ -11,7 +11,7 @@ export async function updateUserInfo(email,updatedData){
         await User.findOneAndUpdate(filter,updatedData);
         revalidatePath('/account');
     } catch (error) {
-        throw Error(error);
+        console.log(error);
     }
 }
 // End method 
@@ -19,7 +19,7 @@ export async function updateUserInfo(email,updatedData){
 export async function changePassword(email, oldPassword, newPassword) {
     const isMatch = await validatePassword(email,oldPassword);
     if (!isMatch) {
-        throw new Error("Please enter a valid current password");        
+        console.log("Please enter a valid current password");        
     }
     const filter = {email: email};
     const hashedPassword = await bcrypt.hash(newPassword, 5);
@@ -32,6 +32,6 @@ export async function changePassword(email, oldPassword, newPassword) {
         await User.findOneAndUpdate(filter,dataToUpdate);
         revalidatePath('/account');
     } catch (error) {
-        throw Error(error);
+        console.log(error);
     } 
 }

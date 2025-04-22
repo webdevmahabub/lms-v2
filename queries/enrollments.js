@@ -18,7 +18,7 @@ export async function enrollForCourse(courseId, userId, paymentMethod){
         const response = await Enrollment.create(newEnrollment);
         return response;
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }
 
@@ -31,7 +31,7 @@ export async function getEnrollmentsForUser(userId){
         }).lean();
         return replaceMongoIdInArray(enrollments);
     } catch (err) {
-        throw new Error(err);
+        console.log(err);
     }
 }
 

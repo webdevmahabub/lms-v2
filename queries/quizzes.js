@@ -34,6 +34,6 @@ export async function createQuiz(quizData) {
         const quiz = await Quiz.create(quizData);
         return quiz._id.toString();
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }

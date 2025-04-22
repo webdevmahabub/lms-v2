@@ -7,7 +7,7 @@ export async function create(moduleData) {
         const module = await Module.create(moduleData);
         return JSON.parse(JSON.stringify(module));
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }
 
@@ -20,6 +20,6 @@ export async function getModule(moduleId){
         }).lean();
         return replaceMongoIdInObject(module);
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }

@@ -12,14 +12,14 @@ export async function createCourse(data){
         const course = await create(data);
         return course;
     } catch (e) {
-        throw new Error(e);
+        console.log(e);
     }
 }
 export async function updateCourse(courseId, dataToUpdate) {
     try {
         await Course.findByIdAndUpdate(courseId,dataToUpdate);
     } catch (e) {
-        throw new Error(e);
+        console.log(e);
     }
 }
 
@@ -31,7 +31,7 @@ export async function changeCoursePublishState(courseId) {
         return res.active
 
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 
 }
@@ -40,7 +40,7 @@ export async function deleteCourse(courseId){
     try {
         await Course.findByIdAndDelete(courseId);  
     } catch (err) {
-        throw new Error(err);
+        console.log(err);
     }
 }
 
@@ -53,7 +53,7 @@ export async function updateQuizSetForCourse(courseId, dataUpdated){
      try {
          await Course.findByIdAndUpdate(courseId,data);
      } catch (error) {
-         throw new Error(err);
+        console.log(err);
      }
 
 }
