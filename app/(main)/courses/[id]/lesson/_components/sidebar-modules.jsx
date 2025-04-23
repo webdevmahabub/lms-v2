@@ -42,7 +42,7 @@ export const SidebarModules = ({courseId,modules}) => {
          <AccordionItem key={module.id} className="border-0" value={module.id}>
           <AccordionTrigger>{module.title} </AccordionTrigger>
 
-          <SidebarLessons/>
+          <SidebarLessons courseId={courseId} lessons={module.lessonIds} module={module.slug} />
 
         </AccordionItem>
      ))
