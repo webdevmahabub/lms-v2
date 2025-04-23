@@ -12,7 +12,7 @@ import {
   import Link from "next/link";
 import { SidebarLessons } from "./sidebar-lessons";
 
-export const SidebarModules = () => {
+export const SidebarModules = ({courseId,modules}) => {
 
    
 
